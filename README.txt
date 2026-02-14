@@ -25,6 +25,7 @@ then in directories named in -I options, then in directories on a standard list.
 
 
 ar [--options] mylib.a member_files
+
 -r
 Write an object-file index into the archive, or update an existing one, even if no other change is made to the archive.
 You may use this modifier flag either with any operation, or alone.  
