@@ -6,7 +6,7 @@
 /*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 11:24:55 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 11:33:09 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_dict  *new_entry(char *line)
         i++;
     value = ft_strndup(line + i, ft_strlen(line + i - 1));
     new = ft_lstnew(key, value);
+    printf("line: %s", line);
+
     return (new);
 }
 
