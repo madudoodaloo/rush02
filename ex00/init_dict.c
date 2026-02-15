@@ -6,7 +6,7 @@
 /*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 11:33:09 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 12:02:25 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 t_dict  *new_entry(char *line)
 {
     int i;
+    int len;
     char *key;
     char *value;
     t_dict  *new;
@@ -24,12 +25,14 @@ t_dict  *new_entry(char *line)
     i = 0;
     while (line[i] && !ft_isspace(line[i]))
         i++;
-    key = ft_strndup(line, i);
+    key = ft_strndup(line, i - 1);
     while (line[i] && (ft_isspace(line[i]) || line[i] == ':'))
         i++;
-    value = ft_strndup(line + i, ft_strlen(line + i - 1));
+    len = ft_strlen(line + i);
+    value = ft_strndup(line + i, len - 1);
+    printf("%s$\n", value);
     new = ft_lstnew(key, value);
-    printf("line: %s", line);
+    printf("%s:%s-", new->key, new->value);
 
     return (new);
 }

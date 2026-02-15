@@ -6,7 +6,7 @@
 /*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:23 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 11:27:13 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 12:02:57 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ t_dict	*ft_lstnew(char *key, char *value)
     new->value = value;
     new->index = 0;
 	new->next = NULL;
+	printf("ola");
 	return (new);
 }
