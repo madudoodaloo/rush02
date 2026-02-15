@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   init_dict.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
+/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 09:00:41 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 10:30:54 by masilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "header.h"
+
+int ft_isspace(char c)
+{
+    if (c == ' ' || (c >= 9 && c <= 13))
+        return (1);
+    return (0);
+}
 
 size_t	ft_strlen(char *str)
 {
