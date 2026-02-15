@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:49 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 10:16:47 by masilva-         ###   ########.fr       */
+/*   Updated: 2026/02/15 11:28:00 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int main(int ac, char **av)
 {
-    t_dict  *dict;
+    t_dict  **dict;
 
+    (void)av;
     if (ac > 3 || ac == 1)
     {
         ft_error(1);
         return (1);
     }
     dict = init_dict("numbers.dict");
-    if (!dict)
-        return (3);
+    if (dict)
+    {
+        
+    }
     //parse do input dado e correr o prog
     print_dict(dict);
     //ft_free_and_exit();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 18:16:20 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 10:54:52 by masilva-         ###   ########.fr       */
+/*   Updated: 2026/02/15 11:28:47 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,24 @@ char	*dict_line(int fd);
 void	ft_free_and_exit(t_dict *dict);
 int ft_error(int error);
 
+/* str_utils.c */
+int ft_strcmp(char *s1, char *s2);
 int ft_isspace(char c);
 size_t	ft_strlen(char *str);
 char    *ft_strndup(char *src, size_t length);
+
+/* init_dict.c */
 t_dict  *new_entry(char *line);
 t_dict  **parse_dict(int fd);
-t_dict  *init_dict(char *filename);
+t_dict  **init_dict(char *filename);
 
 /* lst_utils.c */
 t_dict	*ft_lstlast(t_dict *lst);
-t_dict	*ft_lstadd_back(t_dict **lst, t_dict *new);
+void	ft_lstadd_back(t_dict **lst, t_dict *new);
 t_dict	*ft_lstnew(char *key, char *value);
 
 /* print_utils.c */
-void print_dict(t_dict *dict);
-
+void print_dict(t_dict **dict);
 
 
 

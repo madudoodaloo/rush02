@@ -6,7 +6,7 @@
 /*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:31 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 09:00:33 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 11:11:53 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 void	ft_free_and_exit(t_dict *dict)
 {
+	t_dict *temp;
+
+	temp = dict;
+	while (temp->next)
+	{
+		temp = temp->next;
+		free(dict->key);
+		free(dict->value);
+		free(dict);
+	}
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:23 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 09:00:24 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 11:27:13 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,18 @@ t_dict	*ft_lstlast(t_dict *lst)
 	return (end);
 }
 
-t_dict	*ft_lstadd_back(t_dict **lst, t_dict *new)
+void	ft_lstadd_back(t_dict **lst, t_dict *new)
 {
 	t_dict	*end;
-    int     index;
 
 	if (*lst == NULL)
 		*lst = new;
 	else
 	{
 		end = ft_lstlast(*lst);
-		end -> next = new;
-        new -> index = end->index + 1;
+		end->next = new;
+        new->index = end->index + 1;
 	}
-	return (*lst);
 }
 
 t_dict	*ft_lstnew(char *key, char *value)

@@ -3,49 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_dict.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 10:30:54 by masilva-         ###   ########.fr       */
+/*   Updated: 2026/02/15 11:24:55 by masilva-@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int ft_isspace(char c)
-{
-    if (c == ' ' || (c >= 9 && c <= 13))
-        return (1);
-    return (0);
-}
 
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char    *ft_strndup(char *src, size_t length)
-{
-	char	*cpy;
-	size_t	i;
-
-	i = 0;
-	cpy = (char *)malloc(sizeof(char) * (length + 1));
-	if (!cpy)
-		return (NULL);
-	while (i < length)
-	{
-		cpy[i] = src[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
 
 t_dict  *new_entry(char *line)
 {
@@ -68,11 +35,12 @@ t_dict  *new_entry(char *line)
 t_dict  **parse_dict(int fd)
 {
     char *line;
-    t_dict *head;
+    t_dict **head;
     t_dict *new;
 
     new = NULL;
     head = NULL;
+    line = dict_line(fd);    
     while (line != NULL)
     {
         line = dict_line(fd);
@@ -81,22 +49,23 @@ t_dict  **parse_dict(int fd)
             new = new_entry(line);
             if (!new)
                 ft_error(4);
-            head = ft_lst_addback(&head, new);
+            ft_lstadd_back(head, new);
         }
         free(line);
     }
+    return (head);
 }
 
-t_dict  *init_dict(char *filename)
+t_dict  **init_dict(char *filename)
 {
     int fd;
-    t_dict *head_dict;
+    t_dict **head_dict;
 
     fd = open(filename, O_RDONLY);
     if (fd == -1)
     {
         ft_error(2);
-        return ;
+        return (NULL);
     }
     head_dict = parse_dict(fd);
     close(fd);
