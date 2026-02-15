@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_dict.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
+/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 09:00:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 12:02:25 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 14:30:47 by masilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-
 
 t_dict  *new_entry(char *line)
 {
@@ -23,17 +21,14 @@ t_dict  *new_entry(char *line)
     t_dict  *new;
 
     i = 0;
-    while (line[i] && !ft_isspace(line[i]))
+    while (line[i] && !ft_isspace(line[i]) && line[i] != ':')
         i++;
-    key = ft_strndup(line, i - 1);
+    key = ft_strndup(line, i);
     while (line[i] && (ft_isspace(line[i]) || line[i] == ':'))
         i++;
     len = ft_strlen(line + i);
     value = ft_strndup(line + i, len - 1);
-    printf("%s$\n", value);
-    new = ft_lstnew(key, value);
-    printf("%s:%s-", new->key, new->value);
-
+    new = ft_lstnew(&key, &value);
     return (new);
 }
 
@@ -43,12 +38,16 @@ t_dict  **parse_dict(int fd)
     t_dict **head;
     t_dict *new;
 
-    new = NULL;
-    head = NULL;
-    line = dict_line(fd);    
-    while (line != NULL)
+    head = malloc(sizeof(t_dict *));
+    if (!head)
+        return (NULL);
+    *head = NULL;
+    while (1)
     {
         line = dict_line(fd);
+        printf("%s", line);
+        if (!line)
+            break;
         if (ft_strcmp(line, "\n") != 0)
         {
             new = new_entry(line);
@@ -56,6 +55,7 @@ t_dict  **parse_dict(int fd)
                 ft_error(4);
             ft_lstadd_back(head, new);
         }
+        print_dict(head);
         free(line);
     }
     return (head);

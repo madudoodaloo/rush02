@@ -16,9 +16,9 @@ t_dict	*ft_lstlast(t_dict *lst)
 {
 	t_dict	*end;
 
-	end = lst;
 	if (!lst)
 		return (NULL);
+	end = lst;
 	while (end->next != NULL)
 		end = end -> next;
 	return (end);

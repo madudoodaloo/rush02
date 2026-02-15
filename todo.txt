@@ -11,7 +11,7 @@ WILDCARDS ARE NOT ALLOWED, FFS!
 > argc
 2 - prints based on the standard dictionary
 3 - takes a new dict, adds the contents to our standard and then prints
-2 - if av[1] == "-", read from input, after enter, print the number
+(bonus) 2 - if av[1] == "-", read from input, after enter, print the number
 
 if (ac == 1 || ac > 3)
 > upon error, print with expected cmdline options to run the program 

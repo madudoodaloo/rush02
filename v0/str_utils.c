@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: masilva-@student.42lisboa.com <masilva-    +#+  +:+       +#+        */
+/*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 11:12:40 by masilva-@st       #+#    #+#             */
-/*   Updated: 2026/02/15 11:16:45 by masilva-@st      ###   ########.fr       */
+/*   Updated: 2026/02/15 12:06:41 by masilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int ft_strcmp(char *s1, char *s2)
 {
     int i;
-    int dif;
 
     i = 0;
-    dif = 0;
     while (s1[i] != '\0' && s2[i] != '\0')
     {
         if (s1[i] != s2[i])
